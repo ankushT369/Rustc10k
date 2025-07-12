@@ -22,9 +22,7 @@ fn main() {
                     client_fd = Server::accept_connection(&mut socket_info);
                     Server::handle_connection(client_fd);
                 }
-                // Clean up (close sockets)
                 unsafe {
-                    //libc::close(client_fd);
                     libc::close(socket_info.fd);
                 }
             }
